@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block content %}
+
+<section xmlns="http://www.w3.org/1999/html">
+{% if request.user.is_authenticated %}
+    {% if todos_list %}
+        {% for t in todos_list %}
+    <article class="task">
+        <p>{{t.title}}</p>
+        <a class="confirmation"  href="{% url 'todo-delete' pk=t.id %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <p>{{t.start_date}}</p>
+        <p>{{t.details}}</p>
+        {% if t.image %}
+        <img width="250px" src="{{ t.image.url }}">
+        {% endif %}
+    </article>
+
+        {% endfor %}
+
+    {% endif %}
+
+
+{% endif %}
+</section>
+{% endblock %}

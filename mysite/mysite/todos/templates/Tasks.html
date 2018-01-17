@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block content %}
+<script type="text/javascript" src="/my_admin/jsi18n/"></script>
+<script type="text/javascript" src="/media/admin/js/core.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/media/admin/css/forms.css"/>
+<link rel="stylesheet" type="text/css" href="/media/admin/css/base.css"/>
+<link rel="stylesheet" type="text/css" href="/media/admin/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="/media/admin/css/widgets.css"/>
+<section id="register">
+  <h2>Add new Task</h2>
+  <form method="post"   enctype='multipart/form-data'>
+    {% csrf_token %}
+
+  {{ form.as_p }}
+
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+</section>
+{% endblock %}
